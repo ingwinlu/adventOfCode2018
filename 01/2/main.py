@@ -7,15 +7,13 @@ lst_iter = itertools.cycle(
 )
 
 temp = 0
-freq = dict()
+freq = set()
 
 for i in lst_iter:
-    v = freq.get(temp, 0)
-    if not v == 0:
+    if temp in freq:
         print(temp)
         break
-    v = v+1
-    freq[temp] = v
-    temp = temp + i
+    freq.add(temp)
+    temp += i
 
 f.close()

@@ -1,10 +1,10 @@
 import itertools
 
-lst = []
-with open('input') as f:
-    lst = [int(line[:-1]) for line in f]
+f = open('input')
 
-lst_iter = itertools.cycle(lst)
+lst_iter = itertools.cycle(
+    map(lambda x: int(x[:-1]), f)
+)
 
 temp = 0
 freq = dict()
@@ -17,3 +17,5 @@ for i in lst_iter:
     v = v+1
     freq[temp] = v
     temp = temp + i
+
+f.close()
